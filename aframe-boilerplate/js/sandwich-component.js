@@ -30,7 +30,6 @@ function generateImage(x, y, z, num){
 			test.setAttribute('position', x+" "+y+" "+z);
 			test.setAttribute('visible','false');
 			test.setAttribute('spin-me','target', '#'+newId);
-			test.setAttribute('move-me', '#'+newId);
 			sandwichHolder.push(test);
 
 		}
@@ -92,5 +91,3 @@ AFRAME.registerComponent('spin-me', {
     this.data.target.appendChild(spinningAnimation)
   }
 })
-
-

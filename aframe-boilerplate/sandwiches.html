@@ -6,10 +6,12 @@
     <meta name="description" content="Hello, World! - A-Frame">
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="js/sandwich-component.js"></script>
+
   </head>
   <body>
 
     <a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+     <a-sound src="audio/boss.mp3" autoplay="true" position="0 2 5"></a-sound>
      <a-assets>
       <img id ="kitchen" src="img/kitchen-4.jpg"/>
       <img id ="sandwich" src="img/sandwich.png"/>
