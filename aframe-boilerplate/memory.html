@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, World! - A-Frame</title>
+    <meta name="description" content="Hello, World! - A-Frame">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-sky src="../img/kitchen-4.jpg" rotation="0 -130 0"></a-sky>
+
+      <a-assets>
+        <audio id="aeh" src="../audio/aeh.mp3" preload="auto"></audio>
+        <audio id="ding" src="../audio/ding.mp3" preload="auto"></audio>
+      </a-assets>
+
+      <a-entity id="aeh_sound" sound="src: #aeh; volume: 0.5"></a-entity>
+      <a-entity id="ding_sound" sound="src: #ding; volume: 2"></a-entity>
+
+      <a-entity id="new"></a-entity>
+
+      <a-box id="card1" class="waiting" color="white" position="0 1.7 -6" rotation="0 0 0" scale="1 1 0.1"></a-box>
+      <a-box id="card2" class="waiting" color="white" position="4.39 1.7 -5" rotation="0 -30 0" scale="1 1 0.1"></a-box>
+      <a-box id="card3" class="waiting" color="white" position="6.34 1.7 -2.66" rotation="0 -60 0" scale="1 1 0.1"></a-box>
+      <a-box id="card4" class="waiting" color="white" position="7.41 1.7 0" rotation="0 -90 0" scale="1 1 0.1"></a-box>
+      <a-box id="card5" class="waiting" color="white" position="6.07 1.7 3.28" rotation="0 -120 0" scale="1 1 0.1"></a-box>
+      <a-box id="card6" class="waiting" color="white" position="3.67 1.7 5.47" rotation="0 -150 0" scale="1 1 0.1"></a-box>
+      <a-box id="card7" class="waiting" color="white" position="0 1.7 6" rotation="0 -180 0" scale="1 1 0.1"></a-box>
+      <a-box id="card8" class="waiting" color="white" position="-4.39 1.7 5" rotation="0 -210 0" scale="1 1 0.1"></a-box>
+      <a-box id="card9" class="waiting" color="white" position="-6.34 1.7 2.66" rotation="0 -240 0" scale="1 1 0.1"></a-box>
+      <a-box id="card10" class="waiting" color="white" position="-7.41 1.7 -0" rotation="0 -270 0" scale="1 1 0.1"></a-box>
+      <a-box id="card11" class="waiting" color="white" position="-6.07 1.7 -3.28" rotation="0 -300 0" scale="1 1 0.1"></a-box>
+      <a-box id="card12" class="waiting" color="white" position="-3.67 1.7 -5.47" rotation="0 -330 0" scale="1 1 0.1"></a-box>
+
+      <a-camera>
+        <a-cursor color="#FF0000">
+      </a-camera>
+  
+
+    </a-scene>
+  </body>
+</html>
+<!-- 3235 -->
+
+<script>
+  var selected = 0;
+  var card1 = document.getElementById('card1');
+  var card2 = document.getElementById('card2');
+  var card3 = document.getElementById('card3');
+  var card4 = document.getElementById('card4');
+  var card5 = document.getElementById('card5');
+  var card6 = document.getElementById('card6');
+  var card7 = document.getElementById('card7');
+  var card8 = document.getElementById('card8');
+  var card9 = document.getElementById('card9');
+  var card10 = document.getElementById('card10');
+  var card11 = document.getElementById('card11');
+  var card12 = document.getElementById('card12');
+
+  var aeh = document.getElementById("aeh_sound");
+  var ding = document.getElementById("ding_sound");
+
+  card1.addEventListener( 'click', function() {
+    if (selected == 0) {
+      selected = "card1"
+      this.setAttribute("color", "red");
+    } else if (selected == "card7") {
+      ding.components.sound.playSound();
+      this.setAttribute("color", "red");
+      this.setAttribute("class", "good");
+      document.getElementById("card7").setAttribute("class", "good");
+      selected = 0;
+    } else {
+      this.setAttribute("color", "red")
+        window.setTimeout( function() {
+        aeh.components.sound.playSound();
+        var items = document.getElementsByClassName("waiting");
+        var length = items.length;
+        for (var i = 0; i < length; i++) {
+          items[i].setAttribute("color", "white");
+        }
+        selected = 0;
+      }, 1100);
+    }
+  });
+
+  card2.addEventListener( 'click', function() {
+    if (selected == 0) {
+      selected = "card2"
+      this.setAttribute("color", "green");
+    } else if (selected == "card11") {
+      ding.components.sound.playSound();
+      this.setAttribute("color", "green");
+      this.setAttribute("class", "good");
+      document.getElementById("card11").setAttribute("class", "good");
+      selected = 0;
+    } else {
+      this.setAttribute("color", "green")
+        window.setTimeout( function() {
+        aeh.components.sound.playSound();
+        var items = document.getElementsByClassName("waiting");
+        var length = items.length;
+        for (var i = 0; i < length; i++) {
+          items[i].setAttribute("color", "white");
+        }
+        selected = 0;
+      }, 1100);
+    }
+  });
+
+  card3.addEventListener( 'click', function() {
+    if (selected == 0) {
+      selected = "card3"
+      this.setAttribute("color", "black");
+    } else if (selected == "card4") {
+      ding.components.sound.playSound();
+      this.setAttribute("color", "black");
+      this.setAttribute("class", "good");
+      document.getElementById("card4").setAttribute("class", "good");
+      selected = 0;
+    } else {
+      this.setAttribute("color", "black")
+        window.setTimeout( function() {
+        aeh.components.sound.playSound();
+        var items = document.getElementsByClassName("waiting");
+        var length = items.length;
+        for (var i = 0; i < length; i++) {
+          items[i].setAttribute("color", "white");
+        }
+        selected = 0;
+      }, 1100);
+    }
+  });
+
+  card4.addEventListener( 'click', function() {
+    if (selected == 0) {
+      selected = "card4"
+      this.setAttribute("color", "black");
+    } else if (selected == "card3") {
+      ding.components.sound.playSound();
+      this.setAttribute("color", "black");
+      this.setAttribute("class", "good");
+      document.getElementById("card3").setAttribute("class", "good");
+      selected = 0;
+    } else {
+      this.setAttribute("color", "black")
+        window.setTimeout( function() {
+        aeh.components.sound.playSound();
+        var items = document.getElementsByClassName("waiting");
+        var length = items.length;
+        for (var i = 0; i < length; i++) {
+          items[i].setAttribute("color", "white");
+        }
+        selected = 0;
+      }, 1100);
+    }
+  });
+
+  card5.addEventListener( 'click', function() {
+    if (selected == 0) {
+      selected = "card5"
+      this.setAttribute("color", "purple");
+    } else if (selected == "card8") {
+      ding.components.sound.playSound();
+      this.setAttribute("color", "purple");
+      this.setAttribute("class", "good");
+      document.getElementById("card8").setAttribute("class", "good");
+      selected = 0;
+    } else {
+      this.setAttribute("color", "purple")
+        window.setTimeout( function() {
+        aeh.components.sound.playSound();
+        var items = document.getElementsByClassName("waiting");
+        var length = items.length;
+        for (var i = 0; i < length; i++) {
+          items[i].setAttribute("color", "white");
+        }
+        selected = 0;
+      }, 1100);
+    }
+  });
+
+  card6.addEventListener( 'click', function() {
+    if (selected == 0) {
+      selected = "card6"
+      this.setAttribute("color", "blue");
+    } else if (selected == "card10") {
+      ding.components.sound.playSound();
+      this.setAttribute("color", "blue");
+      this.setAttribute("class", "good");
+      document.getElementById("card10").setAttribute("class", "good");
+      selected = 0;
+    } else {
+      this.setAttribute("color", "blue")
+        window.setTimeout( function() {
+        aeh.components.sound.playSound();
+        var items = document.getElementsByClassName("waiting");
+        var length = items.length;
+        for (var i = 0; i < length; i++) {
+          items[i].setAttribute("color", "white");
+        }
+        selected = 0;
+      }, 1100);
+    }
+  });
+
+  card7.addEventListener( 'click', function() {
+    if (selected == 0) {
+      selected = "card7"
+      this.setAttribute("color", "red");
+    } else if (selected == "card1") {
+      ding.components.sound.playSound();
+      this.setAttribute("color", "red");
+      this.setAttribute("class", "good");
+      document.getElementById("card1").setAttribute("class", "good");
+      selected = 0;
+    } else {
+      this.setAttribute("color", "red")
+        window.setTimeout( function() {
+        aeh.components.sound.playSound();
+        var items = document.getElementsByClassName("waiting");
+        var length = items.length;
+        for (var i = 0; i < length; i++) {
+          items[i].setAttribute("color", "white");
+        }
+        selected = 0;
+      }, 1100);
+    }
+  });
+
+  card8.addEventListener( 'click', function() {
+    if (selected == 0) {
+      selected = "card8"
+      this.setAttribute("color", "purple");
+    } else if (selected == "card5") {
+      ding.components.sound.playSound();
+      this.setAttribute("color", "purple");
+      this.setAttribute("class", "good");
+      document.getElementById("card5").setAttribute("class", "good");
+      selected = 0;
+    } else {
+      this.setAttribute("color", "purple")
+        window.setTimeout( function() {
+        aeh.components.sound.playSound();
+        var items = document.getElementsByClassName("waiting");
+        var length = items.length;
+        for (var i = 0; i < length; i++) {
+          items[i].setAttribute("color", "white");
+        }
+        selected = 0;
+      }, 1100);
+    }
+  });
+
+  card9.addEventListener( 'click', function() {
+    if (selected == 0) {
+      selected = "card9"
+      this.setAttribute("color", "orange");
+    } else if (selected == "card12") {
+      ding.components.sound.playSound();
+      this.setAttribute("color", "orange");
+      this.setAttribute("class", "good");
+      document.getElementById("card12").setAttribute("class", "good");
+      selected = 0;
+    } else {
+      this.setAttribute("color", "oange")
+        window.setTimeout( function() {
+        aeh.components.sound.playSound();
+        var items = document.getElementsByClassName("waiting");
+        var length = items.length;
+        for (var i = 0; i < length; i++) {
+          items[i].setAttribute("color", "white");
+        }
+        selected = 0;
+      }, 1100);
+    }
+  });
+
+  card10.addEventListener( 'click', function() {
+    if (selected == 0) {
+      selected = "card10"
+      this.setAttribute("color", "blue");
+    } else if (selected == "card6") {
+      ding.components.sound.playSound();
+      this.setAttribute("color", "blue");
+      this.setAttribute("class", "good");
+      document.getElementById("card6").setAttribute("class", "good");
+      selected = 0;
+    } else {
+      this.setAttribute("color", "blue")
+        window.setTimeout( function() {
+        aeh.components.sound.playSound();
+        var items = document.getElementsByClassName("waiting");
+        var length = items.length;
+        for (var i = 0; i < length; i++) {
+          items[i].setAttribute("color", "white");
+        }
+        selected = 0;
+      }, 1100);
+    }
+  });
+
+  card11.addEventListener( 'click', function() {
+    if (selected == 0) {
+      selected = "card11"
+      this.setAttribute("color", "green");
+    } else if (selected == "card2") {
+      ding.components.sound.playSound();
+      this.setAttribute("color", "green");
+      this.setAttribute("class", "good");
+      document.getElementById("card2").setAttribute("class", "good");
+      selected = 0;
+    } else {
+      this.setAttribute("color", "green")
+        window.setTimeout( function() {
+        aeh.components.sound.playSound();
+        //this.setAttribute("color", "white");
+        var items = document.getElementsByClassName("waiting");
+        var length = items.length;
+        for (var i = 0; i < length; i++) {
+          items[i].setAttribute("color", "white");
+        }
+        selected = 0;
+      }, 1100);
+    }
+  });
+
+  card12.addEventListener( 'click', function() {
+    if (selected == 0) {
+      selected = "card12"
+      this.setAttribute("color", "orange");
+    } else if (selected == "card9") {
+      ding.components.sound.playSound();
+      this.setAttribute("color", "orange");
+      this.setAttribute("class", "good");
+      document.getElementById("card9").setAttribute("class", "good");
+      selected = 0;
+    } else {
+      this.setAttribute("color", "orange")
+        window.setTimeout( function() {
+        aeh.components.sound.playSound();
+        var items = document.getElementsByClassName("waiting");
+        var length = items.length;
+        for (var i = 0; i < length; i++) {
+          items[i].setAttribute("color", "white");
+        }
+        selected = 0;
+      }, 1100);
+    }
+  });
+
+</script>
