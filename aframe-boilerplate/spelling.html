@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, World! - A-Frame</title>
+    <meta name="description" content="Hello, World! - A-Frame">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-sky src="../img/kitchen-4.jpg" rotation="0 -130 0"></a-sky>
+
+      <a-assets>
+        <audio id="teapot_sound" src="../audio/tps.mp3" preload="auto"></audio>
+      </a-assets>
+      <a-entity sound="src: #teapot_sound"></a-entity>
+
+      <a-entity id="come_on_baby">
+        <a-curvedimage class="intro" color="#FFFFCC" height="15.0" radius="6.0" theta-length="361"
+          rotation="0 200 0" scale="0.8 0.8 0.8" position="0.13 1.29 -0.09"></a-curvedimage>
+        <a-text class="intro" color="black" position="-0.9 2.0 -1.5" rotation="0 0 0"
+         value="Spelling Pop Quiz!"></a-text>
+        <a-text class="intro" color="black" position="-0.9 1.5 -1.5" rotation="0 0 0" scale="0.5 0.5 0.5"
+         value="Click anywhere to hear the word"></a-text>
+        <a-text class="intro" color="black" position="-0.9 1.35 -1.5" rotation="0 0 0" scale="0.5 0.5 0.5"
+         value="we need you to spell."></a-text>
+        <a-text class="intro" color="black" position="-0.9 1.0 -1.5" rotation="0 0 0" scale="0.5 0.5 0.5"
+         value="Spell it in the correct order to win!"></a-text>
+      </a-entity>
+
+      <a-entity id="new"></a-entity>
+
+      <a-box class="d_val" color="white" position="0 1.5 -6" rotation="0 0 0" scale="1 1 0.1"></a-box>
+      <a-text color="black" position="-0.1 1.5 -5.9" rotation="0 0 0" value="d"></a-text>
+
+      <a-box class="t_val_1" color="white" position="4.39 1.8 -5" rotation="0 -30 0" scale="1 1 0.1"></a-box>
+      <a-text color="black" position="4.24 1.8 -4.9" rotation="0 -30 0" value="t"></a-text>
+
+      <a-box class="p_val" color="white" position="6.34 3.4 -2.66" rotation="0 -60 0" scale="1 1 0.1"></a-box>
+      <a-text color="black" position="5.8 3.4 -2.56" rotation="0 -60 0" value="p"></a-text>
+
+      <a-box class="b_val" color="white" position="7.41 0 0" rotation="0 -90 0" scale="1 1 0.1"></a-box>
+      <a-text color="black" position="7.31 0 -0.1" rotation="0 -90 0" value="b"></a-text>
+
+      <a-box class="y_val" color="white" position="6.07 2.01 3.28" rotation="0 -120 0" scale="1 1 0.1"></a-box>
+      <a-text color="black" position="5.97 2.01 3.18" rotation="0 -120 0" value="y"></a-text>
+
+      <a-box class="a_val" color="white" position="3.67 2.17 5.47" rotation="0 -150 0" scale="1 1 0.1"></a-box>
+      <a-text color="black" position="3.7 2.17 5.37" rotation="0 -150 0" value="a"></a-text>
+
+      <a-box class="o_val" color="white" position="0 1.5 6" rotation="0 -180 0" scale="1 1 0.1"></a-box>
+      <a-text color="black" position="0.1 1.5 5.9" rotation="0 -180 0" value="o"></a-text>
+
+      <a-box class="u_val" color="white" position="-4.39 1.8 5" rotation="0 -210 0" scale="1 1 0.1"></a-box>
+      <a-text color="black" position="-4.24 1.8 4.9" rotation="0 -210 0" value="u"></a-text>
+
+      <a-box class="t_val_2" color="white" position="-6.34 3.4 2.66" rotation="0 -240 0" scale="1 1 0.1"></a-box>
+      <a-text color="black" position="-5.8 3.4 2.56" rotation="0 -240 0" value="t"></a-text>
+
+      <a-box class="e_val" color="white" position="-7.41 0 -0" rotation="0 -270 0" scale="1 1 0.1"></a-box>
+      <a-text color="black" position="-7.31 0 0.1" rotation="0 -270 0" value="e"></a-text>
+
+      <a-box class="k_val" color="white" position="-6.07 2.01 -3.28" rotation="0 -300 0" scale="1 1 0.1"></a-box>
+      <a-text color="black" position="-5.97 2.01 -3.18" rotation="0 -300 0" value="k"></a-text>
+
+      <a-box class="i_val" color="white" position="-3.67 2.17 -5.47" rotation="0 -330 0" scale="1 1 0.1"></a-box>
+      <a-text color="black" position="-3.7 2.17 -5.37" rotation="0 -330 0" value="i"></a-text>
+
+      <a-camera>
+        <a-cursor color="#FF0000">
+      </a-camera>
+  
+
+    </a-scene>
+  </body>
+</html>
+<!-- 3235 -->
+
+<script>
+  var correct = "teapot";
+  var options = "dtpbyoutaed" //dtpbyaouteli;
+  var start = 0;
+  var total = 360;
+  var section_length = Math.floor(360 / options.length);
+  var array = ['d', 't', 'p', 'b', 'y', 'a', 'o', 'u', 't', 'e', 'k', 'i'];
+  var word_shuffled = shuffle(array).join('');
+
+  function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+
+  var count = 0;
+  var letter_t_1 = document.getElementsByClassName('t_val_1')[0];
+  var letter_t_2 = document.getElementsByClassName('t_val_2')[0];
+  var letter_d = document.getElementsByClassName('d_val')[0];
+  var letter_p = document.getElementsByClassName('p_val')[0];
+  var letter_b = document.getElementsByClassName('b_val')[0];
+  var letter_y = document.getElementsByClassName('y_val')[0];
+  var letter_a = document.getElementsByClassName('a_val')[0];
+  var letter_o = document.getElementsByClassName('o_val')[0];
+  var letter_u = document.getElementsByClassName('u_val')[0];
+  var letter_e = document.getElementsByClassName('e_val')[0];
+  var letter_k = document.getElementsByClassName('k_val')[0];
+  var letter_i = document.getElementsByClassName('i_val')[0];
+  var intro = document.getElementsByClassName('intro')[0];
+
+  intro.addEventListener( 'click', function() {
+    //var all_items = document.getElementsByClassName('intro');
+    //for (var i = 0; i < all_items.length; i++) {
+    //  elem = all_items[0];
+    //  elem.parentElement.removeChild(elem);
+    //}
+    document.getElementById("come_on_baby").parentElement.removeChild(document.getElementById("come_on_baby"));
+    var entity = document.querySelector('[sound]');
+    entity.components.sound.playSound();
+  });
+
+
+  letter_t_1.addEventListener( 'click', function() {
+    if (count == 0) {
+      console.log(this.setAttribute("color", "green"));
+      count++;
+    } else if (count == 5) {
+      var par = document.getElementById('new');
+      var win_1 = document.createElement("a-curvedimage");
+      win_1.setAttribute("class", "winner");
+      win_1.setAttribute("color", "#ffe1e6");
+      win_1.setAttribute("height", "15.0");
+      win_1.setAttribute("radius", "6.0");
+      win_1.setAttribute("theta-length", "361");
+      win_1.setAttribute("rotation", "0 200 0");
+      win_1.setAttribute("scale", "0.8 0.8 0.8");
+      win_1.setAttribute("position", "0.13 1.29 -0.09");
+      var win_2 = document.createElement("a-text");
+      win_2.setAttribute("color", "black");
+      win_2.setAttribute("position", "-0.9 2.0 -1.5");
+      win_2.setAttribute("rotation", "0 0 0");
+      win_2.setAttribute("value", "Congratulations!!");
+      par.appendChild(win_1);
+      par.appendChild(win_2);
+    } else {
+      gameOver();
+    }
+  });
+
+  letter_t_2.addEventListener( 'click', function() {
+    if (count == 0) {
+      console.log(this.setAttribute("color", "green"));
+      count++;
+    } else if (count == 5) {
+      var par = document.getElementById('new');
+      var win_1 = document.createElement("a-curvedimage");
+      win_1.setAttribute("class", "winner");
+      win_1.setAttribute("color", "#ffe1e6");
+      win_1.setAttribute("height", "15.0");
+      win_1.setAttribute("radius", "6.0");
+      win_1.setAttribute("theta-length", "361");
+      win_1.setAttribute("rotation", "0 200 0");
+      win_1.setAttribute("scale", "0.8 0.8 0.8");
+      win_1.setAttribute("position", "0.13 1.29 -0.09");
+      var win_2 = document.createElement("a-text");
+      win_2.setAttribute("color", "black");
+      win_2.setAttribute("position", "-0.9 2.0 -1.5");
+      win_2.setAttribute("rotation", "0 0 0");
+      win_2.setAttribute("value", "Congratulations!!");
+      par.appendChild(win_1);
+      par.appendChild(win_2);
+    } else {
+      gameOver();
+    }
+  });
+
+  letter_e.addEventListener( 'click', function() {
+    if (count == 1) {
+      console.log(this.setAttribute("color", "green"));
+      count++;
+    } else {
+      gameOver();
+    }
+  });
+
+  letter_a.addEventListener( 'click', function() {
+    if (count == 2) {
+      console.log(this.setAttribute("color", "green"));
+      count++;
+    } else {
+      gameOver();
+    }
+  });
+
+  letter_p.addEventListener( 'click', function() {
+    if (count == 3) {
+      console.log(this.setAttribute("color", "green"));
+      count++;
+    } else {
+      gameOver();
+    }
+  });
+
+  letter_o.addEventListener( 'click', function() {
+    if (count == 4) {
+      console.log(this.setAttribute("color", "green"));
+      count++;
+    } else {
+      gameOver();
+    }
+  });
+
+  letter_d.addEventListener( 'click', function() {
+    gameOver();
+  });
+
+  letter_b.addEventListener( 'click', function() {
+    gameOver();
+  });
+
+  letter_y.addEventListener( 'click', function() {
+    gameOver();
+  });
+
+  letter_u.addEventListener( 'click', function() {
+    gameOver();
+  });
+
+  letter_k.addEventListener( 'click', function() {
+    gameOver();
+  });
+
+  letter_i.addEventListener( 'click', function() {
+    gameOver();
+  });
+
+  function gameOver() {
+    var par = document.getElementById('new');
+    var win_1 = document.createElement("a-curvedimage");
+    win_1.setAttribute("class", "loser");
+    win_1.setAttribute("color", "#ff4c4c");
+    win_1.setAttribute("height", "15.0");
+    win_1.setAttribute("radius", "6.0");
+    win_1.setAttribute("theta-length", "361");
+    win_1.setAttribute("rotation", "0 200 0");
+    win_1.setAttribute("scale", "0.8 0.8 0.8");
+    win_1.setAttribute("position", "0.13 1.29 -0.09");
+    var win_2 = document.createElement("a-text");
+    win_2.setAttribute("color", "black");
+    win_2.setAttribute("position", "-0.9 2.0 -1.5");
+    win_2.setAttribute("rotation", "0 0 0");
+    win_2.setAttribute("value", "Sorry!  You lost!");
+    par.appendChild(win_1);
+    par.appendChild(win_2);
+    return;
+  }
+
+</script>
