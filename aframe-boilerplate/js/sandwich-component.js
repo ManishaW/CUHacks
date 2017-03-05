@@ -1,4 +1,5 @@
 var sandwichHolder = [];
+var sandywichHolder = [];
 
 for(i=0; i<8; i++){
 		var xco=getRandomInt(-4,4);
@@ -23,21 +24,16 @@ function generateImage(x, y, z, num){
 			test.setAttribute('src','img/sandwich.png');
 			test.setAttribute('width','0.7');
 			test.setAttribute('height','0.7');
-			test.setAttribute('rotation', "20 90 20");
+			// test.setAttribute('rotation', "20 90 20");
 			test.setAttribute('position', x+" "+y+" "+z);
 			test.setAttribute('visible','false');
 			sandwichHolder.push(test);
-
-  
-
-
-
  		}
-
-	
 
 	});
 }
+
+
 
 function getNewImage() {
   var el = document.createElement('a-image');
@@ -45,11 +41,6 @@ function getNewImage() {
   return el
 }
 
-function setAttributes(el, attrs) {
-  for(var key in attrs) {
-    el.setAttribute(key, attrs[key]);
-  }
-}
 
 function getRandomInt(min, max) {
 
@@ -70,10 +61,20 @@ function appear(){
 	sandy.setAttribute('visible','true');
 	}
 	
-function getNewAnimation(parantEl) {
+function getNewAnimation(parentEl) {
   var el = document.createElement('a-animation');
   parentEl.appendChild(el);
   return el
 }
 
-
+function addAnimationToImage(){
+	for(i=0;i<8;i++){
+	var test = sandwichHolder[i];
+	var newTest=getNewAnimation(test);
+	newTest.setAttribute('attribute','rotation');
+	newTest.setAttribute('repeat','indefinite');
+	newTest.setAttribute('to','0 360 0');
+		
+	
+	}
+}
