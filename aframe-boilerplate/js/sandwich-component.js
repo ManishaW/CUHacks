@@ -23,21 +23,18 @@ function generateImage(x, y, z, num){
 			test.setAttribute('src','img/sandwich.png');
 			test.setAttribute('width','0.7');
 			test.setAttribute('height','0.7');
-			test.setAttribute('rotation', "20 90 20");
+			// test.setAttribute('rotation', "20 90 20");
 			test.setAttribute('position', x+" "+y+" "+z);
 			test.setAttribute('visible','false');
 			sandwichHolder.push(test);
 
-  
-
-
-
+      }
  		}
 
 	
 
-	});
-}
+	}
+
 
 function getNewImage() {
   var el = document.createElement('a-image');
@@ -70,10 +67,5 @@ function appear(){
 	sandy.setAttribute('visible','true');
 	}
 	
-function getNewAnimation(parantEl) {
-  var el = document.createElement('a-animation');
-  parentEl.appendChild(el);
-  return el
-}
 
 
