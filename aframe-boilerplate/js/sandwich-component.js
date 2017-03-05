@@ -15,6 +15,7 @@ for(i=0; i<8; i++){
 		zco=getRandomInt(-4,4);
 	}
 	generateImage(xco, yco, zco, i);
+	addAnimationToImage();
 }
 
 function generateImage(x, y, z, num){
