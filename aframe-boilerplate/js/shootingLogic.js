@@ -4,6 +4,7 @@
 var targetKillCount = 0;
 var bulletCount     = 0;
 var bulletTimeout   = "300"
+var totalPoints     = 0;
 
 
 // ---------
@@ -57,7 +58,7 @@ function defineNewBulletComponent(newBulletId) {
       bullet.setAttribute("position", bulletStartPosition)
       bullet.setAttribute("rotation", "0 45 0")
       bullet.setAttribute("geometry", "primitive", "box")
-      bullet.setAttribute("material", "color" , "purple")
+      bullet.setAttribute("material", "color" , "white")
       bullet.setAttribute("scale", "0.2 0.2 0.2")
     }
   })
