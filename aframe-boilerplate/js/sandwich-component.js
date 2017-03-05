@@ -36,11 +36,27 @@ function gameOver() {
     win_2.setAttribute("position", "-0.9 2.0 -1.5");
     win_2.setAttribute("rotation", "0 0 0");
     win_2.setAttribute("value", "Congrats! You win a cup of tea!");
+    fireTea()
     par.appendChild(win_1);
     par.appendChild(win_2);
     return;
-  }
+}
 
+function fireTea() {
+  var request = new XMLHttpRequest();
+  // NEED TO UPDATE EVERYTIME
+  request.open('GET', 'https://340f9a4e.ngrok.io/brew', true);
+
+  request.onload = function() {
+    if (request.status >= 200 && request.status < 400) {
+      // Success!
+      var data = JSON.parse(request.responseText);
+    } else {
+      // We reached our target server, but it returned an error
+    }
+  };
+  request.send();
+}
 
 function randomizeSandwich(i){
  var xco = getRandomInt(-4, 4);
@@ -136,4 +152,3 @@ AFRAME.registerComponent('spin-me', {
     this.data.target.appendChild(spinningAnimation)
   }
 })
-
