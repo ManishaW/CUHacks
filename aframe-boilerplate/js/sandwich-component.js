@@ -15,7 +15,7 @@ for(i=0; i<8; i++){
 		zco=getRandomInt(-4,4);
 	}
 	generateImage(xco, yco, zco, i);
-	addAnimationToImage();
+	//addAnimationToImage();
 }
 
 function generateImage(x, y, z, num){
@@ -67,11 +67,11 @@ function appear(){
 	}
 	
 
- function getNewAnimation(parentEl) {
-   var el = document.createElement('a-animation');
-   parentEl.appendChild(el);
-   return el
- }
+ // function getNewAnimation(parentEl) {
+ //   var el = document.createElement('a-animation');
+ //   parentEl.appendChild(el);
+ //   return el
+ // }
 
 
 // function addAnimationToImage(){
@@ -85,4 +85,4 @@ function appear(){
 		
 	
 // 	}
-}
+//}
