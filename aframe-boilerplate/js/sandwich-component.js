@@ -1,4 +1,5 @@
 var sandwichHolder = [];
+var sandywichHolder = [];
 
 for(i=0; i<8; i++){
 		var xco=getRandomInt(-4,4);
@@ -14,6 +15,7 @@ for(i=0; i<8; i++){
 		zco=getRandomInt(-4,4);
 	}
 	generateImage(xco, yco, zco, i);
+	addAnimationToImage();
 }
 
 function generateImage(x, y, z, num){
@@ -28,12 +30,14 @@ function generateImage(x, y, z, num){
 			test.setAttribute('visible','false');
 			sandwichHolder.push(test);
 
-      }
+
+
  		}
 
-	
+	});
+}
 
-	}
+
 
 
 function getNewImage() {
@@ -42,11 +46,6 @@ function getNewImage() {
   return el
 }
 
-function setAttributes(el, attrs) {
-  for(var key in attrs) {
-    el.setAttribute(key, attrs[key]);
-  }
-}
 
 function getRandomInt(min, max) {
 
@@ -68,4 +67,22 @@ function appear(){
 	}
 	
 
+ function getNewAnimation(parentEl) {
+   var el = document.createElement('a-animation');
+   parentEl.appendChild(el);
+   return el
+ }
 
+
+// function addAnimationToImage(){
+// 	console.log("yo")
+// 	for(i=0;i<8;i++){
+// 	var test = sandwichHolder[i];
+// 	var newTest=getNewAnimation(test);
+// 	newTest.setAttribute('attribute','rotation');
+// 	newTest.setAttribute('repeat','indefinite');
+// 	newTest.setAttribute('to','0 360 0');
+		
+	
+// 	}
+}
