@@ -30,7 +30,6 @@ function generateImage(x, y, z, num){
 			test.setAttribute('position', x+" "+y+" "+z);
 			test.setAttribute('visible','false');
 			test.setAttribute('spin-me','target', '#'+newId);
-			//test.setAttribute('move-side-to-side', 'target','#'+newId)
 			sandwichHolder.push(test);
 
 		}
@@ -69,6 +68,7 @@ setTimeout(appear, 25000)
 setTimeout(appear, 30000)
 setTimeout(appear, 35000)
 setTimeout(appear, 40000)
+setTimeout(appear, 45000)
 
 
 
@@ -92,19 +92,3 @@ AFRAME.registerComponent('spin-me', {
   }
 })
 
-//ANIMATION
-/*AFRAME.registerComponent('move-side-to-side', {
-  schema: {
-    target : { type : "selector"}
-  },
-
-  init: function() {
-    var movingSandwich = document.createElement('a-animation');
-
-   
-    })
-
-    this.data.target.appendChild(movingSandwich)
-  }
-})
-*/
