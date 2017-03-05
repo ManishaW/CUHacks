@@ -2,27 +2,38 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Hello, World! - A-Frame</title>
+    <title>418 Brew it</title>
     <meta name="description" content="Hello, World! - A-Frame">
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <link rel="manifest" href="./manifest.json">
+    <script src="js/serviceWorkerCheck.js"></script>
+    <script src="js/shootingLogic.js"></script>
     <script src="js/sandwich-component.js"></script>
+
   </head>
   <body>
 
     <a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
-     <a-sound src="../audio/boss.mp3" autoplay="true"></a-sound>
+
+
+      <a-sound src="../audio/boss.mp3" autoplay="true" volume="1"></a-sound>
+
      <a-assets>
       <img id ="kitchen" src="img/kitchen-4.jpg"/>
       <img id ="sandwich" src="img/sandwich.png"/>
+      <audio id="shoot" src="audio/hwychew.mp3" preload="auto"/>
+       <audio id="die" src="audio/kch.mp3" preload="auto"/>
       </a-assets>
-        <a-camera>      
+        <a-camera>
+
           <a-cursor color="#FF0000">
+            <!-- Score counter  -->
+            <a-text scorekeeper id="scoreKeeper" position="-0.10 -0.05 0" value="SCORE" color="#bd1b1b" scale="0.3 0.3 0.3"></a-text>
           </a-cursor>
         </a-camera>
-      <a-sky src="#kitchen">
-      </a-sky>
+      <a-sky src="#kitchen"></a-sky>
 
-      <a-entity evil-sandwich-0 ></a-entity>   
+      <a-entity evil-sandwich-0 ></a-entity>
        <a-entity evil-sandwich-1 ></a-entity>
         <a-entity evil-sandwich-2 ></a-entity>
          <a-entity evil-sandwich-3 ></a-entity>
