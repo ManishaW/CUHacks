@@ -10,7 +10,8 @@
   <body>
 
     <a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
-     <a-assets>
+     <a-sound src="../audio/boss.mp3" autoplay="true" position="0 2 5"></a-sound>
+    <a-assets>
       <img id ="kitchen" src="img/kitchen-4.jpg"/>
       <img id ="sandwich" src="img/sandwich.png"/>
       </a-assets>
@@ -20,11 +21,9 @@
         </a-camera>
       <a-sky src="#kitchen">
       </a-sky>
-<a-entity>
-      <a-entity evil-sandwich-0 ></a-entity>
-      <a-animation attribute="rotation" repeat="indefinite" to="0 360 0"></a-animation>
-</a-entity>
-      
+
+
+      <a-entity evil-sandwich-0 ></a-entity>   
        <a-entity evil-sandwich-1 ></a-entity>
         <a-entity evil-sandwich-2 ></a-entity>
          <a-entity evil-sandwich-3 ></a-entity>
