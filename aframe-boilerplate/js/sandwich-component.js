@@ -1,5 +1,4 @@
 var sandwichHolder = [];
-var manishaSandwichHolder = [];
 
 for(i=0; i<8; i++){
 		var xco=getRandomInt(-4,4);
@@ -15,6 +14,7 @@ for(i=0; i<8; i++){
 		zco=getRandomInt(-4,4);
 	}
 	generateImage(xco, yco, zco, i);
+
 }
 
 function generateImage(x, y, z, num){
@@ -32,7 +32,9 @@ function generateImage(x, y, z, num){
 			test.setAttribute('spin-me','target', '#'+newId);
 			test.setAttribute('move-me', '#'+newId);
 			sandwichHolder.push(test);
+
 		}
+
 	});
 }
 
@@ -43,6 +45,7 @@ function setAttributes(el, attrs) {
     el.setAttribute(key, attrs[key]);
   }
 }
+
 
 function getNewImage() {
   var el = document.createElement('a-image');
@@ -57,7 +60,6 @@ function getRandomInt(min, max) {
 function appear(){
 	var sandy = sandwichHolder.pop();
 	sandy.setAttribute('visible','true');
-	manishaSandwichHolder.push(sandy);
 	}
 
 setTimeout(appear, 10000)
@@ -68,6 +70,7 @@ setTimeout(appear, 30000)
 setTimeout(appear, 35000)
 setTimeout(appear, 40000)
 setTimeout(appear, 45000)
+
 
 
 
