@@ -1,0 +1,31 @@
+
+{
+  "name": "418Brewit",
+  "short_name": "418 Brew It",
+  "icons": [{
+    "src": "./img/app_icons/sz128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }, {
+      "src": "./img/app_icons/sz144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }, {
+      "src": "./img/app_icons/sz152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }, {
+      "src": "./img/app_icons/sz192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }, {
+      "src": "./img/app_icons/sz256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/sandwiches",
+  "display": "standalone",
+  "background_color": "#30b46a",
+  "theme_color": "#30b46a"
+}

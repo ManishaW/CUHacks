@@ -84,6 +84,21 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+
+// function appear() {
+//   var sandy = sandwichHolder.pop();
+//   sandy.setAttribute('visible', 'true');
+// }
+
+// setTimeout(appear, 10000)
+// setTimeout(appear, 15000)
+// setTimeout(appear, 20000)
+// setTimeout(appear, 25000)
+// setTimeout(appear, 30000)
+// setTimeout(appear, 35000)
+// setTimeout(appear, 40000)
+// setTimeout(appear, 45000)
+
 //ANIMATION
 AFRAME.registerComponent('spin-me', {
   schema: {
