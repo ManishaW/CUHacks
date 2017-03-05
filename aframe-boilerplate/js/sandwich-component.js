@@ -1,4 +1,5 @@
 var sandwichHolder = [];
+var manishaSandwichHolder = [];
 
 for(i=0; i<8; i++){
 		var xco=getRandomInt(-4,4);
@@ -55,6 +56,7 @@ function getRandomInt(min, max) {
 function appear(){
 	var sandy = sandwichHolder.pop();
 	sandy.setAttribute('visible','true');
+	manishaSandwichHolder.push(sandy);
 	}
 
 setTimeout(appear, 10000)
@@ -64,6 +66,7 @@ setTimeout(appear, 25000)
 setTimeout(appear, 30000)
 setTimeout(appear, 35000)
 setTimeout(appear, 40000)
+setTimeout(appear, 45000)
 
 
 

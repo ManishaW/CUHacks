@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, World! - A-Frame</title>
+    <meta name="description" content="Hello, World! - A-Frame">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="js/sandwich-component.js"></script>
+  </head>
+  <body>
+
+    <a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+     <a-assets>
+      <img id ="kitchen" src="img/kitchen-4.jpg"/>
+      <img id ="sandwich" src="img/sandwich.png"/>
+      </a-assets>
+        <a-camera>      
+          <a-cursor color="#FF0000">
+          </a-cursor>
+        </a-camera>
+      <a-sky src="#kitchen">
+      </a-sky>
+
+      <a-entity evil-sandwich-0 ></a-entity>   
+       <a-entity evil-sandwich-1 ></a-entity>
+        <a-entity evil-sandwich-2 ></a-entity>
+         <a-entity evil-sandwich-3 ></a-entity>
+          <a-entity evil-sandwich-4 ></a-entity>
+           <a-entity evil-sandwich-5 ></a-entity>
+            <a-entity evil-sandwich-6 ></a-entity>
+             <a-entity evil-sandwich-7 ></a-entity>
+    </a-scene>
+  </body>
+</html>
