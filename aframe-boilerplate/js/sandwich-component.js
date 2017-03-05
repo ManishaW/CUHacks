@@ -27,7 +27,15 @@ function generateImage(x, y, z, num){
 			test.setAttribute('position', x+" "+y+" "+z);
 			test.setAttribute('visible','false');
 			sandwichHolder.push(test);
-		}
+
+  
+
+
+
+ 		}
+
+	
+
 	});
 }
 
@@ -61,4 +69,11 @@ function appear(){
 	var sandy=sandwichHolder.pop();
 	sandy.setAttribute('visible','true');
 	}
+	
+function getNewAnimation(parantEl) {
+  var el = document.createElement('a-animation');
+  parentEl.appendChild(el);
+  return el
+}
+
 
