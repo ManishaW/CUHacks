@@ -110,7 +110,7 @@ AFRAME.registerComponent('spin-me', {
     win_2.setAttribute("color", "black");
     win_2.setAttribute("position", "-0.9 2.0 -1.5");
     win_2.setAttribute("rotation", "0 0 0");
-    win_2.setAttribute("value", "Sorry!  You lost!");
+    win_2.setAttribute("value", "Congratulations!  You Won!!");
     par.appendChild(win_1);
     par.appendChild(win_2);
     return;

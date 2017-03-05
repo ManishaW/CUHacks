@@ -1,13 +1,10 @@
 // ---------
 
-console.log("whatever")
-
 // Global var (prob bad idea)
 var targetKillCount = 0;
 var bulletCount     = 0;
 var bulletTimeout   = "300"
 var totalPoints     = 0;
-
 
 
 // ---------
@@ -31,13 +28,11 @@ function getNewAnimation(targetElement) {
 }
 
 function removeEntity(entity, timeOut) {
-
-
   if (timeOut)
     window.setTimeout(function() {
+      totalPoints += 24
       entity.setAttribute("sound","src: #die; autoplay: true")
       entity.parentNode.removeChild(entity)
-
     }, timeOut)
   else
     entity.parentNode.removeChild(entity);
@@ -118,9 +113,18 @@ AFRAME.registerComponent('flybullet', {
     })
     this.data.target.appendChild(flyingAnimation)
 
-  
     // Remove the bullet when it reaches the target obj
     removeEntity(this.el, bulletTimeout);
     removeEntity(this.data.bulletTarget, bulletTimeout)
+  }
+})
+
+AFRAME.registerComponent('scorekeeper', {
+  tick: function(oldData) {
+    if (totalPoints > 0 &&
+        totalPoints.toString() != this.el.getAttribute('value')) {
+      console.log(totalPoints);
+      this.el.setAttribute('value', totalPoints.toString())
+    }
   }
 })
