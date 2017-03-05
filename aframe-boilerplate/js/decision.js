@@ -1,23 +1,27 @@
 
 
-AFRAME.registerComponent('page-change', {
+AFRAME.registerComponent('page-change-spell', {
   init: function() {
+
     this.el.addEventListener('click', function(e) {
-     var theClass= this.el.getAttribute("class");
-     if(theClass == "spell")
-     {
-     	location.href = "http://172.17.120.166:3000/spelling";
-     	 console.log("Going to spelling game");
-     }
-     else if(theClass == "attack")
-     {
-     	location.href = "http://172.17.120.166:3000/sandwiches";
-     	console.log("Going to spelling game");
-     }
-     else{
-     	//do nothing
-     	 console.log("Do nothing");
-     }
+        console.log("Hellooooo!");
+
+     	window.location.href = "http://172.17.120.166:3000/spelling";
+     
+   
+    })
+  }
+})
+
+AFRAME.registerComponent('page-change-attack', {
+  init: function() {
+
+    this.el.addEventListener('click', function(e) {
+        console.log("Hellooooo there!");
+
+        window.location.href = "http://172.17.120.166:3000/sandwiches";
+     
+   
     })
   }
 })

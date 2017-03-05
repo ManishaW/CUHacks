@@ -92,3 +92,26 @@ AFRAME.registerComponent('spin-me', {
     this.data.target.appendChild(spinningAnimation)
   }
 })
+
+
+//function to end the game
+ function gameOver() {
+    var par = document.getElementById('new');
+    var win_1 = document.createElement("a-curvedimage");
+    win_1.setAttribute("class", "loser");
+    win_1.setAttribute("color", "#ff4c4c");
+    win_1.setAttribute("height", "15.0");
+    win_1.setAttribute("radius", "6.0");
+    win_1.setAttribute("theta-length", "361");
+    win_1.setAttribute("rotation", "0 200 0");
+    win_1.setAttribute("scale", "0.8 0.8 0.8");
+    win_1.setAttribute("position", "0.13 1.29 -0.09");
+    var win_2 = document.createElement("a-text");
+    win_2.setAttribute("color", "black");
+    win_2.setAttribute("position", "-0.9 2.0 -1.5");
+    win_2.setAttribute("rotation", "0 0 0");
+    win_2.setAttribute("value", "Sorry!  You lost!");
+    par.appendChild(win_1);
+    par.appendChild(win_2);
+    return;
+  }
