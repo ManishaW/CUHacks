@@ -30,6 +30,7 @@ function getNewAnimation(targetElement) {
 function removeEntity(entity, timeOut) {
   if (timeOut)
     window.setTimeout(function() {
+      totalPoints += 24
       entity.parentNode.removeChild(entity)
     }, timeOut)
   else
@@ -114,5 +115,15 @@ AFRAME.registerComponent('flybullet', {
     // Remove the bullet when it reaches the target obj
     removeEntity(this.el, bulletTimeout);
     removeEntity(this.data.bulletTarget, bulletTimeout)
+  }
+})
+
+AFRAME.registerComponent('scorekeeper', {
+  tick: function(oldData) {
+    if (totalPoints > 0 &&
+        totalPoints.toString() != this.el.getAttribute('value')) {
+      console.log(totalPoints);
+      this.el.setAttribute('value', totalPoints.toString())
+    }
   }
 })
