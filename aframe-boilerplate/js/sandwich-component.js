@@ -71,6 +71,7 @@ setTimeout(appear, 40000)
 setTimeout(appear, 45000)
 
 
+
 //ANIMATION
 AFRAME.registerComponent('spin-me', {
   schema: {
