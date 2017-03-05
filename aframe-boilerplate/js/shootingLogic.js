@@ -31,6 +31,7 @@ function removeEntity(entity, timeOut) {
   if (timeOut)
     window.setTimeout(function() {
       totalPoints += 24
+      entity.setAttribute("sound","src: #die; autoplay: true")
       entity.parentNode.removeChild(entity)
     }, timeOut)
   else
@@ -61,6 +62,7 @@ function defineNewBulletComponent(newBulletId) {
       bullet.setAttribute("geometry", "primitive", "box")
       bullet.setAttribute("material", "color" , "white")
       bullet.setAttribute("scale", "0.2 0.2 0.2")
+      bullet.setAttribute("sound","src: #shoot; autoplay: true")
     }
   })
 }
@@ -109,7 +111,6 @@ AFRAME.registerComponent('flybullet', {
       dur:       bulletTimeout,
       to:        this.data.position,
     })
-
     this.data.target.appendChild(flyingAnimation)
 
     // Remove the bullet when it reaches the target obj

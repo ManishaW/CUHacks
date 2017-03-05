@@ -84,8 +84,9 @@ AFRAME.registerComponent('spin-me', {
 
     setAttributes(spinningAnimation, {
       attribute: "rotation",
-      repeat: "indefinite",
-      to: "0 360 0",
+      repeat:    "indefinite",
+      to:        "0 360 0"
+
     })
 
     this.data.target.appendChild(spinningAnimation)
