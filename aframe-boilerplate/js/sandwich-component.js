@@ -1,6 +1,28 @@
 var sandwichHolder = [];
+var i=0;
+ 
+// var timeKeeper = 15
+// function testTime() {
+//  setTimeout(function( ) {
+//   randomizeSandwich(i)
+//    generateEntity(i)
+//    timeKeeper--
+//    i++
+//    testTime()
+//  }, 4000)
+// }
+// testTime()
 
-for (i = 0; i < 8; i++) {
+function generateEntity(num){
+
+      var test = getNewEntity();
+      var newId = 'evil-sandwich-' + num;
+      test.setAttribute(newId,'');
+   
+}
+
+function randomizeSandwich(i){
+ 
   var xco = getRandomInt(-4, 4);
   while (xco == 0) {
     xco = getRandomInt(-4, 4);
@@ -18,6 +40,7 @@ for (i = 0; i < 8; i++) {
 }
 
 function generateImage(x, y, z, num) {
+ 
   AFRAME.registerComponent('evil-sandwich-' + num, {
     init: function() {
       var test = getNewImage();
@@ -28,7 +51,7 @@ function generateImage(x, y, z, num) {
       test.setAttribute('height', '0.7');
       test.setAttribute('rotation', "0 0 0");
       test.setAttribute('position', x + " " + y + " " + z);
-      test.setAttribute('visible', 'false');
+      test.setAttribute('visible', 'true');
       test.setAttribute('spin-me', 'target', '#' + newId);
       test.setAttribute('target', null);
       sandwichHolder.push(test);
@@ -45,6 +68,11 @@ function setAttributes(el, attrs) {
   }
 }
 
+function getNewEntity(){
+   var el = document.createElement('a-entity');
+  document.querySelector('a-scene').appendChild(el);
+  return el
+}
 
 function getNewImage() {
   var el = document.createElement('a-image');
@@ -55,21 +83,6 @@ function getNewImage() {
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
-
-function appear() {
-  var sandy = sandwichHolder.pop();
-  sandy.setAttribute('visible', 'true');
-}
-
-setTimeout(appear, 10000)
-setTimeout(appear, 15000)
-setTimeout(appear, 20000)
-setTimeout(appear, 25000)
-setTimeout(appear, 30000)
-setTimeout(appear, 35000)
-setTimeout(appear, 40000)
-setTimeout(appear, 45000)
-
 
 //ANIMATION
 AFRAME.registerComponent('spin-me', {
@@ -94,24 +107,3 @@ AFRAME.registerComponent('spin-me', {
 })
 
 
-//function to end the game
- function gameOver() {
-    var par = document.getElementById('new');
-    var win_1 = document.createElement("a-curvedimage");
-    win_1.setAttribute("class", "loser");
-    win_1.setAttribute("color", "#ff4c4c");
-    win_1.setAttribute("height", "15.0");
-    win_1.setAttribute("radius", "6.0");
-    win_1.setAttribute("theta-length", "361");
-    win_1.setAttribute("rotation", "0 200 0");
-    win_1.setAttribute("scale", "0.8 0.8 0.8");
-    win_1.setAttribute("position", "0.13 1.29 -0.09");
-    var win_2 = document.createElement("a-text");
-    win_2.setAttribute("color", "black");
-    win_2.setAttribute("position", "-0.9 2.0 -1.5");
-    win_2.setAttribute("rotation", "0 0 0");
-    win_2.setAttribute("value", "Congratulations!  You Won!!");
-    par.appendChild(win_1);
-    par.appendChild(win_2);
-    return;
-  }
