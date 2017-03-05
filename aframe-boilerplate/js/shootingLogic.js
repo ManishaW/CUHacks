@@ -125,6 +125,25 @@ AFRAME.registerComponent('scorekeeper', {
         totalPoints.toString() != this.el.getAttribute('value')) {
       console.log(totalPoints);
       this.el.setAttribute('value', totalPoints.toString())
+
+      // CHANGE HERE
+      if (totalPoints > 100) {
+        var request = new XMLHttpRequest();
+        // NEED TO UPDATE EVERYTIME
+        request.open('GET', 'https://05de6b63.ngrok.io/brew', true);
+
+        request.onload = function() {
+          if (request.status >= 200 && request.status < 400) {
+            // Success!
+            var data = JSON.parse(request.responseText);
+          } else {
+            // We reached our target server, but it returned an error
+
+          }
+        };
+
+        request.send();
+      }
     }
   }
 })
