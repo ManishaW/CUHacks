@@ -37,15 +37,28 @@ function gameOver() {
     win_2.setAttribute("rotation", "0 0 0");
     win_2.setAttribute("value", "Congrats! You win a cup of tea!");
     fireTea()
+    
+    var entityRefresh = document.createElement("a-entity")
+    entityRefresh.setAttribute("position",".5 1.2 -7");
+    var buttonRefresh = document.createElement("a-box");
+    buttonRefresh.setAttribute("class", "refresh");
+    buttonRefresh.setAttribute("color","#456d41");
+    var refreshText = document.createElement("a-text");
+    refreshText.setAttribute("value", "Play again?");
+    refreshText.setAttribute("scale","10 3 0.1");
+    ref.setAttribute("color","#000000");
+    console.log("refreshiingg");
+
     par.appendChild(win_1);
     par.appendChild(win_2);
     return;
+
 }
 
 function fireTea() {
   var request = new XMLHttpRequest();
   // NEED TO UPDATE EVERYTIME
-  request.open('GET', 'https://340f9a4e.ngrok.io/brew', true);
+request.open('GET', 'https://789d9126.ngrok.io', true);
 
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
@@ -57,6 +70,19 @@ function fireTea() {
   };
   request.send();
 }
+
+AFRAME.registerComponent('page-refresh', {
+  init: function() {
+
+   this.el.addEventListener('click', function(e) {
+        console.log("refresh!");
+
+        window.location.href = "http://10.129.224.143:3000/sandwiches";
+    
+  
+    })
+  }
+})
 
 function randomizeSandwich(i){
  var xco = getRandomInt(-4, 4);

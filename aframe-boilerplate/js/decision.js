@@ -17,7 +17,7 @@ AFRAME.registerComponent('page-change-attack', {
    this.el.addEventListener('click', function(e) {
         console.log("Hellooooo there!");
 
-       window.location.href = "http://172.17.116.14:3000/sandwiches";
+       window.location.href = "http://10.137.221.40:3000/sandwiches";
     
   
     })
