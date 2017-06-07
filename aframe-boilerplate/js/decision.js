@@ -1,14 +1,11 @@
 
-
 AFRAME.registerComponent('page-change-spell', {
   init: function() {
 
     this.el.addEventListener('click', function(e) {
-        console.log("Hellooooo!");
-
-     	window.location.href = "http://172.17.120.166:3000/spelling";
+       
+     	window.location.href = window.location.toString()+"spelling";
      
-   
     })
   }
 })
@@ -16,12 +13,23 @@ AFRAME.registerComponent('page-change-spell', {
 AFRAME.registerComponent('page-change-attack', {
   init: function() {
 
-    this.el.addEventListener('click', function(e) {
-        console.log("Hellooooo there!");
-
-        window.location.href = "http://172.17.120.166:3000/sandwiches";
-     
-   
+   this.el.addEventListener('click', function(e) {
+      
+      window.location.href = window.location.toString()+"sandwiches";
+    
+  
     })
-  }
+ }
+})
+
+   AFRAME.registerComponent('page-change-memory', {
+  init: function() {
+
+   this.el.addEventListener('click', function(e) {
+        
+      window.location.href = window.location.toString()+"memory";
+    
+  
+    }) 
+ }
 })

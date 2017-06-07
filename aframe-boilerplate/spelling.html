@@ -172,8 +172,15 @@
       win_2.setAttribute("position", "-0.9 2.0 -1.5");
       win_2.setAttribute("rotation", "0 0 0");
       win_2.setAttribute("value", "Congratulations!!");
+      var win_3 = document.createElement("a-text");
+      win_3.setAttribute("id","go-back");
+      win_3.setAttribute("color", "black");
+      win_3.setAttribute("position", "-1.192 1.0 -1.5");
+      win_3.setAttribute("rotation", "0 0 0");
+     win_3.setAttribute("value", "Return to main menu!");
       par.appendChild(win_1);
       par.appendChild(win_2);
+      par.appendChild(win_3);
     } else {
       gameOver();
     }
@@ -255,9 +262,29 @@
     win_2.setAttribute("position", "-0.9 2.0 -1.5");
     win_2.setAttribute("rotation", "0 0 0");
     win_2.setAttribute("value", "Sorry!  You lost!");
+    var win_3 = document.createElement("a-text");
+    win_3.setAttribute("id","go-back");
+    win_3.setAttribute("color", "black");
+    win_3.setAttribute("position", "-1.192 1.0 -1.5");
+    win_3.setAttribute("rotation", "0 0 0");
+    win_3.setAttribute("value", "Return to main menu!");
     par.appendChild(win_1);
     par.appendChild(win_2);
+    par.appendChild(win_3);
+
     return;
   }
 
+// AFRAME.registerComponent(document.getElementById('go-back'), {
+//   init: function() {
+
+//    this.el.addEventListener('click', function(e) {
+//         console.log("Hellooooo there!");
+
+//        window.location.href = "http://10.129.208.57:3000";
+    
+  
+//     })
+//  }
+// })
 </script>
